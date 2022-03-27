@@ -1,0 +1,3 @@
+[submodule "snowbattle-pvp"]
+	path = snowbattle-pvp
+	url = git@github.com:tomacheese/snowbattle-pvp.git

@@ -1,0 +1,32 @@
+name: Add Submodule
+
+on:
+  workflow_dispatch:
+    inputs:
+      repo:
+        description: "追加するサブモジュールのリポジトリ名"
+        required: true
+      directory-name:
+        description: "ディレクトリ名"
+        required: true
+
+jobs:
+  submodule-add:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - name: Add Submodule
+        run: git submodule add https://github.com/${{ github.event.inputs.repo }}.git ${{ github.event.inputs.directory-name }}
+
+      - name: Create pull request
+        run: |
+          hub add -A
+          hub commit -m "feat: Add submodule ${{ github.event.inputs.repo }}"
+          hub push --set-upstream origin add-submodule-${{ github.event.inputs.directory-name }}
+          echo -e "- Repo: https://github.com/${{ github.event.inputs.repo }}\n- Directory: ${{ github.event.inputs.directory-name }}" > description.md
+          hub pull-request -b master -F description.md -r ${{ github.event.sender.login }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
