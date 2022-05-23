@@ -1,3 +1,6 @@
 [submodule "snowbattle-pvp"]
 	path = snowbattle-pvp
 	url = git@github.com:tomacheese/snowbattle-pvp.git
+[submodule "jaoium-factory"]
+	path = jaoium-factory
+	url = https://github.com/jaoafa/jaoium-factory.git
