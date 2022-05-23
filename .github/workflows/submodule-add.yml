@@ -19,7 +19,7 @@ jobs:
         uses: actions/checkout@master
 
       - name: Set git-config
-        uses: |
+        run: |
           git config --global user.name "jaotan"
           git config --global user.email "34743289+jaotan@users.noreply.github.com"
 
