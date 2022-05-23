@@ -23,6 +23,9 @@ jobs:
           git config --global user.name "jaotan"
           git config --global user.email "34743289+jaotan@users.noreply.github.com"
 
+      - name: Create new branch
+        run: hub checkout -b add-submodule-${{ github.event.inputs.directory-name }}
+
       - name: Add Submodule
         run: git submodule add https://github.com/${{ github.event.inputs.repo }}.git ${{ github.event.inputs.directory-name }}
 
