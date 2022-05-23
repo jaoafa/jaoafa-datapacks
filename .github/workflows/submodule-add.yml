@@ -34,7 +34,7 @@ jobs:
           hub add -A
           hub commit -m "feat: Add submodule ${{ github.event.inputs.repo }}"
           hub push --set-upstream origin add-submodule-${{ github.event.inputs.directory-name }}
-          echo -e "- Repo: https://github.com/${{ github.event.inputs.repo }}\n- Directory: ${{ github.event.inputs.directory-name }}" > description.md
+          echo -e "feat: add ${{ github.event.inputs.repo }}\n\n- Repo: https://github.com/${{ github.event.inputs.repo }}\n- Directory: ${{ github.event.inputs.directory-name }}" > description.md
           hub pull-request -b master -F description.md -r ${{ github.event.sender.login }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
