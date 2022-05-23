@@ -18,6 +18,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@master
 
+      - name: Set git-config
+        uses: |
+          git config --global user.name "jaotan"
+          git config --global user.email "34743289+jaotan@users.noreply.github.com"
+
       - name: Add Submodule
         run: git submodule add https://github.com/${{ github.event.inputs.repo }}.git ${{ github.event.inputs.directory-name }}
 
