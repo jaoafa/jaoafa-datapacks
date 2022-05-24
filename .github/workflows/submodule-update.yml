@@ -25,8 +25,7 @@ jobs:
 
       - name: Update Submodule
         run: |
-          git submodule foreach git pull origin BRANCH
-          git submodule update
+          git submodule update --init --remote --merge
 
       - name: Create pull request
         run: |
