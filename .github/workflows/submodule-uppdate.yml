@@ -24,7 +24,9 @@ jobs:
         run: hub checkout -b update-submodule-${{ steps.date.outputs.datetime }}
 
       - name: Update Submodule
-        run: git submodule update --remote --merge
+        run: |
+          git submodule foreach git pull origin BRANCH
+          git submodule update
 
       - name: Create pull request
         run: |
