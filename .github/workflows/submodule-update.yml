@@ -25,7 +25,8 @@ jobs:
 
       - name: Update Submodule
         run: |
-          git submodule update --init --remote --merge
+          git submodule update --init
+          git submodule update --remote --merge
 
       - name: Create pull request
         run: |
