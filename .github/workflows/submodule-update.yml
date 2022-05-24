@@ -33,6 +33,6 @@ jobs:
           hub add -A
           hub commit -m "feat: Update submodules"
           hub push --set-upstream origin update-submodule-${{ steps.date.outputs.datetime }}
-          hub pull-request -b master -m ""feat: Update submodules (${{ steps.date.outputs.datetime }})" -r ${{ github.event.sender.login }}
+          hub pull-request -b master -m "feat: Update submodules (${{ steps.date.outputs.datetime }})" -r ${{ github.event.sender.login }}
         env:
           GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
